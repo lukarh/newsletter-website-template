@@ -1,3 +1,19 @@
+# newsletter-website-template
+
+## Motivation
+
+The purpose of this project is to gain familiarity with MERN stack and how it can be incorporated while developing a website that runs on essential user functionalities and making the user experience a smooth one. 
+
+## Development
+
+- Code: JavaScript using MERN Stack
+- Framework: React.js
+- Libraries: 
+- Database: MongoDB
+  
+## Deployment
+In a terminal at this directory, run the following command to install all necessary libraries / packages:
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -18,8 +34,6 @@ Open [http://localhost:4000](http://localhost:4000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 =======
-# newsletter-website-template
-
 
 ### Quick Video Demo:
 
