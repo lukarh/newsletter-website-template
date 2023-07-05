@@ -1,0 +1,24 @@
+.product-image:hover{
+    box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.p-button.p-component.cart-btn {
+    background-color: black; 
+    border-radius: 0px; 
+    font-family: Poppins; 
+    font-weight: bold; 
+    font-size: 14px;
+}
+
+.p-button.p-component.cart-btn:hover {
+    background-color: #DC4D01; 
+}
+
+.p-button.p-component.cart-btn:active {
+    background-color: #DC4D01; 
+}
+  
+.p-button.p-component.cart-btn:focus {
+    background-color: black; 
+}

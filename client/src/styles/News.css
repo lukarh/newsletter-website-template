@@ -1,0 +1,110 @@
+.p-button.p-component.news-btn  {
+    background-color: #DC4D01; 
+    border-radius: 0px; 
+    width: 20%; 
+    font-family: Lora;
+}
+
+.p-button.p-component.news-btn:hover {
+    background-color: black; 
+}
+
+.p-button.p-component.news-btn:active {
+    background-color: black; 
+}
+  
+.p-button.p-component.news-btn:focus {
+    background-color: #DC4D01; 
+}
+
+/* MAIN AND SIDEBAR NEWS CSS */
+
+.news-article-desc {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.news-article-desc-alt {
+    padding-bottom: 1rem; 
+    padding-left: 1rem; 
+    padding-right: 1rem;
+}
+
+.news-img {
+    padding: 1rem;
+    display: block; 
+    width: 100%;
+}
+
+.news-img-alt {
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: block; 
+    width: 100%;
+}
+
+.news-link {
+    color: black !important; /* Inherit the color from the parent */
+    text-decoration: none !important; /* Remove the underline */
+}
+
+/* MAIN NEWS CSS */
+
+.news-main-container {
+    display: flex; 
+    flex-direction: column; 
+    width: 55%;
+}
+
+.news-subscribe-container {
+    height: 100%;
+}
+
+.news-subscribe-content {
+    align-items: center;
+    background-color: #EEEEEE;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center; 
+    padding: 1.5rem;
+}
+
+/* SIDEBAR NEWS CSS */
+
+.news-sidebar-container {
+    display: flex;
+    flex-direction: column; 
+    width: 22.5%;
+}
+
+/* MORE STORIES NEWS CSS */
+
+.news-more-article-desc-alt {
+    display: flex; 
+    flex-direction: column;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    width: 80%;
+}
+
+.news-img-more-alt {
+    display: block; 
+    padding-left: 1rem; 
+    /* padding-right: 1rem;  */
+    max-width: 100%;
+}
+
+.news-link-alt {
+    color: black !important; /* Inherit the color from the parent */
+    text-decoration: none !important; /* Remove the underline */
+    display: flex; 
+    flex-direction: row;
+    padding-bottom: 1rem;
+}
+
+.news-more-container {
+    width: 70%;
+}

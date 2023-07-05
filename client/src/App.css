@@ -1,0 +1,219 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+.page-content {
+  min-height: 100vh;
+}
+
+/* PAGE CONTENT CONTAINERS */
+
+.container {
+  display: flex;
+  justify-content: center; 
+  width: 100%;
+} 
+
+.container-alt {
+  display: flex;
+  justify-content: center; 
+  min-height: 90vh;
+}
+
+.col-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content { /* USED FOR HOME AND SHOP PAGE */
+  display: flex; 
+  flex-direction: column; 
+  width: 70%;
+}
+
+.main-content-split {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+}
+
+.main-content-alt { /* USED FOR ACCOUNT PAGE */
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 1.5rem;
+}
+
+.main-content-auth { /* USED FOR AUTH CONTENT PAGES (LOGIN, REGISTER, SIGNUP) */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.content {
+  width: 100%;
+}
+
+/* HEADERS */
+
+.subtitle {
+  margin-bottom: 12px;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+/* -------------------- */
+
+/* ACCOUNT OVERVIEW CSS */
+
+/* - SUBSCRIPTION STATUS - */ 
+
+.sub-body-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.sub-body-container-desc {
+  width: 75%;
+}
+
+.sub-body-header {
+  width: 25%;
+}
+
+.sub-body-info {
+  margin-bottom: 10px;
+}
+
+.sub-hyperlink {
+  font-weight: bold;
+  font-size: 18px;
+  color: #37B3F3;
+}
+
+/* CHANGE EMAIL */
+
+.email-container {
+  width: 55%
+}
+
+/* CHANGE PASSWORD */
+
+.forgot-password-container {
+  width: 55%;
+}
+
+/* - NOTIFICATIONS - */ 
+
+.mini-desc-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.option-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12px;
+}
+
+.switch-container {
+  display: flex;
+  align-items: center;
+}
+
+/* -------------------- */
+
+.auth-hyperlink {
+  text-align: center;
+}
+
+.auth-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.auth-description {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.field {
+  margin-top: 15px;
+}
+
+.p-button.p-component.btn {
+  margin-bottom: 10px;
+  margin-top: 10px; 
+  justify-content: center; 
+  display: flex; 
+  background-color: #DC4D01; 
+  border-radius: 0px;
+}
+
+.p-button.p-component.btn:hover {
+  background-color: black; 
+}
+
+.p-button.p-component.btn:focus {
+  background-color: black; 
+}
+
+.p-button.p-component.btn:active {
+  background-color: black; 
+}
+
+.p-button.p-component.auth-button {
+  margin-bottom: 10px;
+  margin-top: 15px; 
+  justify-content: center; 
+  display: flex; 
+  background-color: #DC4D01; 
+  border-radius: 0px;
+}
+
+.p-button.p-component.auth-button:hover {
+  background-color: black; 
+}
+
+.p-button.p-component.auth-button:focus {
+  background-color: black; 
+}
+
+.p-button.p-component.auth-button:active {
+  background-color: black; 
+}
+
+.p-float-label.p-input-icon-right {
+  width: 100%;
+}
+
+.p-inputtext {
+  width: 100%;
+  border-radius: 0 !important;
+}
+
+.root-error {
+  display: flex; 
+  flex-direction: column;
+  min-height: 90vh;
+  padding: 2.5rem;
+}

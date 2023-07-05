@@ -1,0 +1,35 @@
+.p-button.p-component.sub-btn  {
+    background-color: #DC4D01;
+    border-radius: 0px;
+    width: 250px;
+}
+
+.p-button.p-component.sub-btn:hover {
+    background-color: black; 
+}
+
+.p-button.p-component.sub-btn:active {
+    background-color: black; 
+}
+  
+.p-button.p-component.sub-btn:focus {
+    background-color: #DC4D01; 
+}
+
+.p-card.p-component {
+    border: 3px solid white;
+    cursor: pointer;
+}
+
+.p-card.p-component.card-selected {
+    border: 3px solid black;
+}
+
+.p-card.p-component {
+    box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1)
+}
+
+.p-card-title,
+.p-card-subtitle {
+  text-align: center;
+}
