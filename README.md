@@ -1,15 +1,15 @@
 # newsletter-website-template
 
-## About
+## Languages, Tools, and Libraries/Packages
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) ![Stripe](https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white)
 
-The purpose of this project is to gain familiarity with MERN stack and how it can be incorporated in website development that relies on essential user functionalities and a smooth user experience. I also wanted to created a template / beginning framework to build upon for a possible newsletter website in the future if needed. Overall, I am fully responsible for fullstack developing and designing this template website from scratch using MERN stack for client, server, and database interaction. This website utilizes API endpoints using Express.JS, Passport.JS, and Axios for seamless integration and communication with the server and MongoDB for various user functionalities such as Login/Logout, User Authentication, and User Account Management. I also designed the front-end user experience utilizing PrimeReact, a React UI component library, and also custom styled components. Furtermore, I used publicly available development tools such as Stripe, Mailtrap, and NewsAPI to gain familiarity on how to integrate subscription services, emailing services, and a public news database onto the website. In the future, I plan to further streamline and clean the process for how the entire website operates.
-
-### Quick Video Demo:
+### Video Demo:
 
 https://github.com/lukarh/newsletter-website-template/assets/65103724/f77e16dd-f732-4978-b41e-1b7b7d8fce2a
 
-## Languages, Tools, and Libraries/Packages
-![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) ![Stripe](https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white)
+## About
+
+The purpose of this project is to gain familiarity with MERN stack and how it can be incorporated in website development that relies on essential user functionalities and a smooth user experience. I also wanted to created a template / beginning framework to build upon for a possible newsletter website in the future if needed. Overall, I am fully responsible for fullstack developing and designing this template website from scratch using MERN stack for client, server, and database interaction. This website utilizes API endpoints using Express.JS, Passport.JS, and Axios for seamless integration and communication with the server and MongoDB for various user functionalities such as Login/Logout, User Authentication, and User Account Management. I also designed the front-end user experience utilizing PrimeReact, a React UI component library, and also custom styled components. Furtermore, I used publicly available development tools such as Stripe, Mailtrap, and NewsAPI to gain familiarity on how to integrate subscription services, emailing services, and a public news database onto the website. In the future, I plan to further streamline and clean the process for how the entire website operates.
 
 ## Development
 
@@ -42,6 +42,10 @@ https://github.com/lukarh/newsletter-website-template/assets/65103724/f77e16dd-f
     
 ## Deployment
 In a terminal at this directory, run the following command to install all necessary libraries / packages:
+
+## Not Included
+
+`.env` file is not included, which contains the secret and publishable key from Stripe, as well as developer API keys/credentials for MailTrap and NewsAPI
 
 ## Available Scripts
 
