@@ -7,6 +7,7 @@ const loginUser = (req, res, next) => {
     passport.authenticate("local", (error, user, info) => {
         if (error) throw error
         if (!user) res.status(401).send({ message: "Invalid Credentials", redirect: '' })
+        if (!user.verified) res.status(401).send({ message: "You must verify your account first before logging in.", redirect: '' })
         else {
             req.logIn(user, error => {
                 if (error) throw error

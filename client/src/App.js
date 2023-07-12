@@ -3,8 +3,6 @@ import './styles/News.css';
 import './styles/Shop.css';
 import './styles/Subscribe.css';
 
-import Topbar from "./scenes/global/Topbar";
-
 import Home from "./scenes/home";
 import Shop from "./scenes/shop";
 import Login from "./scenes/login";
@@ -17,6 +15,7 @@ import Checkout from "./scenes/checkout";
 import Subscribe from "./scenes/subscribe";
 import VerifyEmail from "./scenes/verifyEmail";
 import ForgotPassword from "./scenes/forgotPassword";
+import CancelSubscription from './scenes/cancelSubscription';
 
 import Account from "./scenes/account";
 
@@ -27,7 +26,7 @@ import CartProvider from "./contexts/CartContext";
 
 import axios from "axios";
 
-import { Routes, Route } from "react-router-dom"; // BrowserRouter, Link
+import { Routes, Route } from "react-router-dom";
 
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -46,7 +45,6 @@ function App() {
     const fetchStripePromise = async () => {
       const response = await axios.get("http://localhost:4000/api/stripe/config", { withCredentials: true })
       const { publishableKey } = response.data
-      console.log("The Publishable Stripe Key:", publishableKey)
       setStripePromise(loadStripe(publishableKey))
     }
 
@@ -75,6 +73,7 @@ function App() {
             <Route exact path="/account" element={<Account />} />
             <Route exact path="/checkout" element={<Checkout />} />
             <Route exact path='/choose-subscription' element={<Subscribe />} />
+            <Route exact path='/cancel-subscription' element={<CancelSubscription />} />
             <Route exact path="*" element={<NotFound />} />
           </Routes>
           <Footer/>
@@ -88,17 +87,3 @@ function App() {
 }
 
 export default App;
-
-// const [clientSecret, setClientSecret] = useState("")
-
-  // useEffect(() => {
-  //   fetch("http://localhost:4000/create-payment-intent", {
-  //     method: "POST",
-  //     body: JSON.stringify({}),
-  //   }).then(async (result) => {
-  //     console.log('the result', result)
-  //     var { clientSecret } = await result.json()
-  //     console.log(clientSecret, 'the secret')
-  //     setClientSecret(clientSecret)
-  //   });
-  // }, []);

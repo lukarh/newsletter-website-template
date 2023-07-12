@@ -9,7 +9,6 @@ import NewsMore from "../../components/NewsMore";
 import NewsSidebar from "../../components/NewsSidebar";
 
 const Home = () => {
-    const [articles, setArticles] = useState([])
     const [mainArticle, setMainArticle] = useState([])
     const [leftSideArticles, setLeftSideArticles] = useState([])
     const [rightSideArticles, setRightSideArticles] = useState([])
@@ -17,7 +16,7 @@ const Home = () => {
 
     useEffect(() => {
         const getArticles = async () => {
-            const response = await axios.get('https://newsapi.org/v2/top-headlines?country=us&category=sports&apiKey=7d3b02ff6d4643698d1f1f42ccf7a762')
+            const response = await axios.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=7d3b02ff6d4643698d1f1f42ccf7a762')
 
             const articlesArray = response.data.articles
 

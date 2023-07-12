@@ -1,19 +1,48 @@
-.p-button.p-component.sub-btn  {
+.card-element-container {
+    width: 500px; 
+    padding: 1rem; 
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 4px rgba(0,0,0,0.1);
+}
+
+.p-button.p-component.subscribe-btn  {
     background-color: #DC4D01;
+    border-radius: 0px;
+    width: 250px;
+    margin-top: 5px;
+}
+
+.p-button.p-component.subscribe-btn:hover {
+    background-color: black; 
+}
+
+.p-button.p-component.subscribe-btn:active {
+    background-color: black; 
+}
+  
+.p-button.p-component.subscribe-btn:focus {
+    background-color: #DC4D01; 
+}
+
+.p-button.p-component.cancel-btn  {
+    color: black;
     border-radius: 0px;
     width: 250px;
 }
 
-.p-button.p-component.sub-btn:hover {
-    background-color: black; 
+.p-button.p-component.cancel-btn:hover {
+    color: white !important;
+    background-color: black !important; 
 }
 
-.p-button.p-component.sub-btn:active {
-    background-color: black; 
+.p-button.p-component.cancel-btn:active {
+    color: white !important;
+    background-color: black !important; 
 }
   
-.p-button.p-component.sub-btn:focus {
-    background-color: #DC4D01; 
+.p-button.p-component.cancel-btn:focus {
+    color: white !important;
+    background-color: black !important; 
 }
 
 .p-card.p-component {

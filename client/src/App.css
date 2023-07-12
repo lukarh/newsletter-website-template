@@ -107,6 +107,12 @@
   color: #37B3F3;
 }
 
+.sub-hyperlink-inactive {
+  font-weight: bold;
+  font-size: 18px;
+  color: #808080;
+}
+
 /* CHANGE EMAIL */
 
 .email-container {

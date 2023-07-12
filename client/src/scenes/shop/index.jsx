@@ -7,18 +7,6 @@ import { shoppingProducts, getProductData } from '../../data/shoppingProducts';
 
 import ShoppingProduct from '../../components/ShoppingProduct'
 
-function chunkArray (arr, size) {
-    const chunkedArray = []
-    let index = 0
-
-    while (index < arr.length) {
-        chunkedArray.push(arr.slice(index, index+size))
-        index += size
-    }
-
-    return chunkedArray
-}
-
 const Shop = () => {
     const [chunkedProducts, setChunkedProducts] = useState([])
 

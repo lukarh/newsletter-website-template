@@ -14,9 +14,7 @@ const Login = () => {
     const userAuth = useContext(AuthContext)
 
     const [isProcessing, setIsProcessing] = useState(false)
-    const [serverErrorOccurred, setServerErrorOccurred] = useState(false)
-    const [invalidInputs, setInvalidInputs] = useState(false)
-    const [invalidCredentials, setInvalidCredentials] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
 
     const formik = useFormik({
         initialValues: {
@@ -43,15 +41,11 @@ const Login = () => {
 
         onSubmit: async (data) => {
             setIsProcessing(true)
-        
-            // reset error messages to false
-            setInvalidInputs(false)
-            setInvalidCredentials(false)
-            setServerErrorOccurred(false)
+            setErrorMessage('')
 
             // check if the user has not inputted a valid username and password
             if ((Object.keys(formik.errors).length > 0) || (Object.values(formik.values).includes(""))) {
-                setInvalidInputs(true)
+                setErrorMessage('Please make sure to enter both your username and password.')
                 setIsProcessing(false)
                 return
             }
@@ -59,18 +53,13 @@ const Login = () => {
             const response = await userAuth.handleLogin(formik.values.email, formik.values.password)
             const { message, redirect } = response.data
             const status = response.status
-            console.log(status, message, redirect)
 
             if (status === 200) {
                 setIsProcessing(false)
                 window.location.href = redirect
                 return
-            } else if (status === 401) {
-                setInvalidCredentials(true)
-                setIsProcessing(false)
-                return
             } else {
-                setServerErrorOccurred(true)
+                setErrorMessage(response.data.message)
                 setIsProcessing(false)
                 return
             }
@@ -130,18 +119,8 @@ const Login = () => {
                         {/* <Button className="auth-button" label="Login" onClick={() => handleSubmit(formik)} disabled={isProcessing} /> */}
                         <Button className="auth-button" label="Login" onClick={formik.handleSubmit} disabled={isProcessing} />
                         {
-                            serverErrorOccurred ? 
-                            <small className="p-error" style={{ display: "block" }} >A server error occurred while trying to log in. Please try again.</small> 
-                            : <></>
-                        }
-                        {
-                            invalidInputs ? 
-                            <small className="p-error" style={{ display: "block" }} >Please enter valid login credentials above.</small> 
-                            : <></>
-                        }
-                        {
-                            invalidCredentials ? 
-                            <small className="p-error" style={{ display: "block" }} >Email or password is incorrect. Please try again.</small> 
+                            (errorMessage !== '') ? 
+                            <small className="p-error" style={{ display: "block" }} >{errorMessage}</small> 
                             : <></>
                         }
 
