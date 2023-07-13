@@ -4,17 +4,40 @@ import axios from "axios";
 
 import { Skeleton } from "primereact/skeleton";
 
+import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
+
 const ChangeSubscription = () => {
+    const [isProcessing, setIsProcessing] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
+    const [userCardBrand, setUserCardBrand] = useState('')
     const [userSubscriptionData, setUserSubscriptionData] = useState(undefined)
+
+    const cardBrandImage = (userCardBrand === 'mastercard') ?
+        "https://www.mastercard.com/content/dam/public/brandcenter/en/logo-black.png"
+        : 
+        (userCardBrand === 'discover') ?
+        "https://i.imgur.com/ewcDB1Y.jpg"
+        :
+        (userCardBrand === 'visa') ?
+        "https://i.imgur.com/jGyySgK.jpg"
+        :
+        (userCardBrand === 'american express') ?
+        "https://i.imgur.com/2bz8kym.png" 
+        :
+        (userCardBrand === 'jcb') ?
+        "https://i.imgur.com/XE5W2GY.png"
+        :
+        ""
 
     useEffect(() => {
         const fetchUserSubscriptionData = async () => {
             try {
                 const response = await axios.get("http://localhost:4000/api/stripe/subscription-status", { withCredentials: true })
                 setUserSubscriptionData(response.data.subscription)
+                setUserCardBrand(response.data.subscription.currentPaymentMethodBrand)
 
             } catch (error) {
-
+                console.log(error)
             }
         }
 
@@ -96,14 +119,17 @@ const ChangeSubscription = () => {
                         </h3>
                         <div className="sub-body-container-desc"> 
                             {
-                                userSubscriptionData ?
-                                <p className="sub-body-info">
-                                    {userSubscriptionData.currentPaymentMethodBrand} {userSubscriptionData.lastFourDigits}
-                                </p>
+                                (userSubscriptionData) ?
+                                <div style={{ display: "flex", flexDirection: "row", alignItems: "center", marginBottom: "10px" }}>
+                                    <img src={cardBrandImage} style={{ height: "15px", marginRight: "5px" }}/>
+                                    <p style={{ alignItems: "center" }}>
+                                          •••• {userSubscriptionData.lastFourDigits}
+                                    </p>
+                                </div>
                                 :
                                 <Skeleton width="100%" height="1.85rem" />
                             }
-                            <a href='/home' className="sub-hyperlink">Change Payment Method</a>
+                            <a href='/change-payment' className="sub-hyperlink">Change Payment Method</a>
                         </div>
                     </div>
 

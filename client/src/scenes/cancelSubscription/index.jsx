@@ -5,6 +5,8 @@ import axios from "axios";
 import { Button } from 'primereact/button';
 import { ProgressSpinner } from 'primereact/progressspinner';
 
+import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
+
 import AnnualCard from "../../components/subscriptionCards/annualCard";
 import MonthlyCard from "../../components/subscriptionCards/monthlyCard";
 import BiannualCard from "../../components/subscriptionCards/biannualCard";
@@ -116,7 +118,7 @@ const CancelSubscription = () => {
                     </p>
                 </div>
 
-                <div className="cards-container" style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "1rem", paddingBottom: "3rem", width: "100%", height: "50vh" }}>
+                <div className="cards-container" style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", padding: "1rem", paddingBottom: "3rem", width: "100%", height: "45vh" }}>
 
                     {
                         userSubscriptionData ?
@@ -126,7 +128,7 @@ const CancelSubscription = () => {
                             {!hasBiannualPlan ? <BiannualCard isBiannuallySelected={isBiannuallySelected} chooseBiannualPlan={chooseBiannualPlan} /> : <></>}
                         </>
                         :
-                        <div style={{ height: "50vh" }}></div>
+                        <div style={{ height: "45vh" }}></div>
                     }
 
                 </div>
@@ -147,6 +149,11 @@ const CancelSubscription = () => {
                     :
                     <></>
                 }
+
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "10px" }}>
+                    <p>By canceling your subscription, you will no longer be charged once your current subscription period ends.</p>
+                    <p>Canceling your subscription does not refund or end your current subscription.</p>
+                </div>
 
             </div>
         

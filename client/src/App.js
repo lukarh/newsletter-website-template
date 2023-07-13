@@ -14,6 +14,7 @@ import NotFound from "./scenes/notFound";
 import Checkout from "./scenes/checkout";
 import Subscribe from "./scenes/subscribe";
 import VerifyEmail from "./scenes/verifyEmail";
+import ChangePayment from './scenes/changePayment';
 import ForgotPassword from "./scenes/forgotPassword";
 import CancelSubscription from './scenes/cancelSubscription';
 
@@ -74,6 +75,7 @@ function App() {
             <Route exact path="/checkout" element={<Checkout />} />
             <Route exact path='/choose-subscription' element={<Subscribe />} />
             <Route exact path='/cancel-subscription' element={<CancelSubscription />} />
+            <Route exact path='/change-payment' element={<ChangePayment />} />
             <Route exact path="*" element={<NotFound />} />
           </Routes>
           <Footer/>

@@ -91,13 +91,10 @@ const getUserByEmail = async (req, res) => {
         // get user email
         const { email } = req.query
 
-        console.log('The server received the following email:', email)
-
         // find user by email in mongoDB database
         const user = await User.findOne({ email })
 
         // return if user, or email in other words, has been used
-        console.log('The email is already in use:', !!user)
         res.json({ exists: !!user })
     } catch (error) {
         res.status(400).json({ error: error.message })

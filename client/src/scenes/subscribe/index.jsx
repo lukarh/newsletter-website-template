@@ -32,9 +32,9 @@ const Subscribe = () => {
                 const response = await axios.get("http://localhost:4000/api/users/profile", { withCredentials: true })
                 setUserData(response.data.user)
 
-                console.log("The account response", response.data.user)
             } catch (error) {
-
+                setUserData(undefined)
+                console.log(error)
             }
         }
 
@@ -74,7 +74,7 @@ const Subscribe = () => {
         }
 
         if (!paymentMethod) {
-            setErrorMessage('Please make sure to enter all of your payment credentials.')
+            setErrorMessage('Please make sure to enter your payment credentials.')
             setIsProcessing(false)
         }
 
@@ -94,9 +94,13 @@ const Subscribe = () => {
                 priceId: priceId,
             }
 
-            const { data } = await axios.post('http://localhost:4000/api/stripe/subscribe', requestData, { withCredentials: true })
+            const response = await axios.post('http://localhost:4000/api/stripe/subscribe', requestData, { withCredentials: true })
 
-            console.log('Subscription created:', data.subscription)
+            if (response.status === 200) {
+                window.location.href = '/account'
+                setIsProcessing(false)
+            }
+
             setIsProcessing(false)
 
         } catch (error) {

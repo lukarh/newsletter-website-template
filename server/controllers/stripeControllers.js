@@ -99,7 +99,7 @@ const createSubscription = async (req, res) => {
     }
 
     if (isExpiring) {
-        const upcomingSubscription = getUpcomingStripeSubscription(customer)
+        const upcomingSubscription = await getUpcomingStripeSubscription(customer)
 
         if (upcomingSubscription) {
             return res.status(500).send({ 
@@ -109,7 +109,6 @@ const createSubscription = async (req, res) => {
         }
 
         try {
-            const cancellationDate = activeSubscription.cancel_at_period_end
             const currentPeriodEnd = activeSubscription.current_period_end
 
             const subscription = await stripe.subscriptions.create({
@@ -214,8 +213,9 @@ const getSubscriptionStatus = async (req, res) => {
         currency: "USD"
     }).format(amount / 100)
 
-    const currentPaymentMethodId = customer.invoice_settings.default_payment_method;
-    const currentPaymentMethod = await stripe.paymentMethods.retrieve(currentPaymentMethodId);
+    const currentPaymentMethodId = customer.invoice_settings.default_payment_method
+    const currentPaymentMethod = await stripe.paymentMethods.retrieve(currentPaymentMethodId)
+
 
     const currentPaymentMethodBrand = currentPaymentMethod.card.brand
     const lastFourDigits = currentPaymentMethod.card.last4
@@ -254,8 +254,30 @@ const cancelSubscription = async (req, res) => {
 
     // check if customer does not have currently have an active subscription
     const activeSubscription = await getStripeSubscription(customer)
+    const isAlreadyExpiring = activeSubscription.cancel_at_period_end
+
+    if (isAlreadyExpiring) {
+        const upcomingSubscription = await getUpcomingStripeSubscription(customer)
+
+        if (!upcomingSubscription) {
+            return res.status(500).send({ 
+                error: 'N/A',
+                message: 'You currently do not have an active or upcoming subscription that you can cancel.' 
+            })
+
+        } else {
+            const upcomingSubscriptionId = upcomingSubscription.id
+            await stripe.subscriptions.del(upcomingSubscriptionId)
+
+            return res.status(200).send({ 
+                error: 'N/A',
+                message:  "Successfully canceled your upcoming subscription." 
+            })
+        }
+    }
 
     if (!activeSubscription) {
+
         return res.status(500).send({ 
             error: 'N/A',
             message: 'You currently do not have an active subscription that you can cancel.' 
@@ -268,6 +290,7 @@ const cancelSubscription = async (req, res) => {
         await stripe.subscriptions.update(activeSubscriptionId, {
             cancel_at_period_end: true,
         })
+
         // await stripe.subscriptions.del(activeSubscriptionId)
         return res.status(200).send({ 
             message: "Successfully canceled your active subscription.",
@@ -283,7 +306,9 @@ const cancelSubscription = async (req, res) => {
     }
 }
 
-const cancelUpcomingSubscription = async (req, res) => {
+const changePaymentMethod = async (req, res) => {
+    const { paymentMethod } = req.body
+
     // get customer info from stripe database
     const customer = await getStripeCustomer(req)
 
@@ -300,35 +325,33 @@ const cancelUpcomingSubscription = async (req, res) => {
         }
     } 
 
-    // check if customer does not have currently have an active subscription
-    const upcomingSubscription = await getUpcomingStripeSubscription(customer)
+    // get customerId and update payment method
+    const customerId = customer.id
 
-    if (!upcomingSubscription) {
-        return res.status(500).send({ 
-            error: 'N/A',
-            message: 'You currently do not have an upcoming subscription that you can cancel.' 
-        })
-    }
-
-    // attempt to cancel the subscription without any server error
     try {
-        const upcomingSubscriptionId = upcomingSubscription.id
-        await stripe.subscriptions.update(upcomingSubscriptionId, {
-            cancel_at_period_end: true,
-        })
-        // await stripe.subscriptions.del(activeSubscriptionId)
-        return res.status(200).send({ 
-            message: "Successfully canceled your upcoming subscription.",
-            canceledSubscription: true
+        // attach the payment method to the customer
+        await stripe.paymentMethods.attach(paymentMethod.id, {
+            customer: customerId,
+        });
+        // update the default payment method of customer
+        const updatedCustomer = await stripe.customers.update(customerId, {
+            invoice_settings: {
+                default_payment_method: paymentMethod.id
+            }
         })
 
-    } catch (error) {
-        return res.status(500).send({ 
-            error: error, 
-            message: "There was an error canceling your Stripe Subscription. Please try again.",
-            canceledSubscription: false,
+        return res.status(200).send({ 
+            message: "Successfully updated your payment method."
+        })
+
+    } catch (error) {       
+
+        return res.status(500).send({
+            error: error,
+            message: "There was an error connecting with Stripe whilst updating your payment method. Please try again."
         })
     }
+ 
 }
 
 const getPublishableKey = async (req, res) => {
@@ -341,6 +364,6 @@ module.exports = {
     createStripeCustomer,
     getSubscriptionStatus,
     getPublishableKey,
-    cancelSubscription,
-    cancelUpcomingSubscription
+    changePaymentMethod,
+    cancelSubscription
 }
