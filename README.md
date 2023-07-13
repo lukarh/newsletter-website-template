@@ -5,7 +5,7 @@
 
 ### Video Demo:
 
-<iframe width="560" height="315" src="https://youtu.be/BZeJ6P40W_Q" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=BZeJ6P40W_Q" frameborder="0" allowfullscreen></iframe>
 
 ## About
 
