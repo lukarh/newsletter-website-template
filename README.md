@@ -7,7 +7,7 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=BZeJ6P40W_Q" frameborder="0" allowfullscreen></iframe>
 
-[![Video Title](https://img.youtube.com/vi/abc123/0.jpg)](https://www.youtube.com/watch?v=BZeJ6P40W_Q)
+[![discover-card](https://github.com/lukarh/newsletter-website-template/assets/65103724/c2b7e87c-fc83-4b9f-b0bd-438b30d2bef4)](https://www.youtube.com/watch?v=BZeJ6P40W_Q)
 
 ## About
 
