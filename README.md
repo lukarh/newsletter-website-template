@@ -5,6 +5,10 @@
 
 ## [Click Here for a Video Demo](https://www.youtube.com/watch?v=BZeJ6P40W_Q)
 
+Or view some quick screenshots of the app and read more below:
+
+![messy-gallary](https://github.com/lukarh/newsletter-website-template/assets/65103724/d34106d8-da13-4b6d-97b7-fa3820060367)
+
 ## About
 
 This project is a full-stack mock newsletter website developed using MERN (MongoDB, Express.js, ReactJS, Node.js) stack, Axios for seamless API endpoint communication, Formik for efficient form handling and submission, Stripe for subscription and payment management, and industry-standard file structure. For the file structure, the directory is composed of two main folders, one for the client and one for the server, each respectively containing logic for the front-end and back-end. The server-side structure features folders such as controllers, config, middleware, and more such to define various parameters and settings for the application, hold logic for handling incoming requests and generating appropriate responses, and create API endpoint routes. The client-side folder structure incorporates folders such as contexts, components, scenes, and other essential folders.
