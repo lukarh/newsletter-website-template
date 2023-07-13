@@ -15,7 +15,7 @@ This project is a full-stack mock newsletter website developed using MERN (Mongo
 
 With this website, users can find themselves experiencing all the essential user functionalities, including secure login/logout, registration, and hassle-free subscription management. This works thanks to intuitive and visually appealing front-end design implemented using PrimeReact UI components. Stripe Integration with the website ensures a smooth experience for users to choose, update, and manage their subscriptions. Furthermore, this website also includes a basic-working framework of a shop and cart functionality, that has yet to be fully fleshed out, using CartContext - a context hook, making it easy for users to browse and add products to their cart. Lastly, the website also makes API calls to NewsAPI to populate the main home page with the top most recent headlines in the United States, allowing the users to have access to the latest and most relevant headlines on the website.
 
-Overall, this project was an arduous learning experience to gain familiarity on how to adhere to modern development practices, how to full-stack develop a website from scratch, and how to build software using relevant functionalities found across many developed websites. 
+Overall, this project was a great learning experience to gain familiarity on how to adhere to modern development practices, how to full-stack develop a website from scratch, and how to build software using relevant functionalities found across many developed websites. 
 
 ## Development
 
