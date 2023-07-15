@@ -24,7 +24,7 @@ Overall, this project was a great learning experience to gain familiarity on how
 - Database: MongoDB
 - Back-End: Express.JS, Passport.JS, Axios
 - Front-End: PrimeReact, a React UI component library
-- APIs: Stripe, NewsAPI
+- APIs: Stripe, NewsAPI, MailTrap
 - Additional: HTML, CSS, Styled Components
 
 ## File Structure - Organized in Industry-Styled Format
