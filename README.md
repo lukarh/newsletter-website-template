@@ -27,8 +27,6 @@ Overall, this project was a great learning experience to gain familiarity on how
 - APIs: Stripe, NewsAPI, MailTrap
 - Additional: HTML, CSS, Styled Components
 
-` test `
-
 ## File Structure - Organized in Industry-Styled Format
 - **Client Folder:**
   -   public
